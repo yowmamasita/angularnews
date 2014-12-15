@@ -18,11 +18,18 @@ class Main(Controller):
     @route_with('/')
     def api_list(self):
         timestamp = int(time.time())
-        url = API_URL + "/api/" + API_VERSION + "/search?tags=story"
-        url += "&query=angular&numericFilters=points>=50,created_at_i>="
-        resp = requests.get(url + str(timestamp - THREE_MONTHS))
-        results = resp.json()
-        for hit in results['hits']:
-            print hit['title'].encode('utf-8')
-            print hit['url']
-        return 'ok'
+        ret = []
+        tags = ['angular', 'angularjs']
+        for tag in tags:
+            url = API_URL + "/api/" + API_VERSION + "/search?tags=story"
+            url += "&query=%s&numericFilters=points>=50,created_at_i>=" % tag
+            resp = requests.get(url + str(timestamp - THREE_MONTHS))
+            results = resp.json()
+            print results['page']
+            print results['nbHits']
+            print results['nbPages']
+            print results['hitsPerPage']
+            print '-----------------'
+            for hit in results['hits']:
+                ret.append(Story(**{k: v for k, v in hit.iteritems() if k in Story._properties.keys()}))
+        self.context['data'] = ret
