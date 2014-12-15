@@ -1,9 +1,9 @@
-application: cs-ferris    #.appspot.com
+application: angularnews    #.appspot.com
 version: baseline
 
 runtime: python27
 api_version: 1
-threadsafe: yes 
+threadsafe: yes
 
 default_expiration: 1h
 
