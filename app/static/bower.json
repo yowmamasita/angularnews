@@ -1,0 +1,19 @@
+{
+  "name": "angularnews",
+  "version": "1.0.0",
+  "homepage": "https://github.com/yowmamasita/angularnews",
+  "authors": [
+    "Ben Sarmiento <me@bensarmiento.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "riotjs": "~2.0.14"
+  }
+}
