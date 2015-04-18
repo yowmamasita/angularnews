@@ -6,7 +6,8 @@ class Main(Controller):
 
     @route_with('/')
     def list(self):
-        self.context['links'] = get_stories(['python', 'javascript', 'angular', 'angularjs'])
+        tags = ['python', 'javascript', 'angular', 'angularjs']
+        self.context['links'] = get_stories(tags)
 
     @route_with('/<tags>')
     def search(self, tags):
