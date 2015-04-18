@@ -1,0 +1,14 @@
+../slugify/main.py
+../slugify/__init__.py
+../slugify/tests.py
+../slugify/alt_translates.py
+../slugify/main.pyc
+../slugify/__init__.pyc
+../slugify/tests.pyc
+../slugify/alt_translates.pyc
+./
+dependency_links.txt
+top_level.txt
+SOURCES.txt
+requires.txt
+PKG-INFO

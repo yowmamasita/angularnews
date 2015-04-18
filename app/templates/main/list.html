@@ -18,10 +18,11 @@
     <news></news>
 
     <script src="/static/tags/news.tag" type="riot/tag"></script>
+    <script src="/static/bower_components/lodash/lodash.min.js"></script>
     <script src="/static/bower_components/riotjs/riot+compiler.min.js"></script>
     <script>
     riot.mount('news', {
-      links: {{links}}
+      links: _.sortBy({{ links }}, function(n) { return -n.score; })
     })
     </script>
 

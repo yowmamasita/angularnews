@@ -1,6 +1,7 @@
 from ferris.core.caching import cache
 import requests
 import time
+from boltons.strutils import asciify
 
 ONE_WEEK = 604800
 API_URL = "http://hn.algolia.com"
@@ -27,9 +28,14 @@ def get_stories(tags, timestamp=None):
                 results = resp.json()
                 page = int(results['page'])  # current page
                 nbPages = int(results['nbPages'])  # total pages
-                ret.update({res['title'].encode('ascii'): res['url'].encode('ascii') for res in results['hits']})
+                ret.update({
+                    res['url'].encode('ascii'): {
+                        'title': asciify(res['title']).encode('ascii'),
+                        'url': res['url'].encode('ascii'),
+                        'score': int(res['points']),
+                        'tag': tag,
+                    } for res in results['hits']
+                })
         return ret
 
     return inner(tags)
-
-# print get_stories(['angular', 'angularjs'])

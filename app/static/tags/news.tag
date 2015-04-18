@@ -1,7 +1,7 @@
 <news>
-    <ul>
-        <li each={ title, url in opts.links }>
-            <a href="{ url }" target="_blank">{ title }</a>
+    <ol>
+        <li each={ link in opts.links }>
+            [{ link.tag }] <a href="{ link.url }" target="_blank">{ link.title }</a> (score: { link.score / 100 })
         </li>
-    </ul>
+    </ol>
 </news>

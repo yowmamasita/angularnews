@@ -14,6 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "riotjs": "~2.0.14"
+    "riotjs": "~2.0.14",
+    "lodash": "~3.7.0"
   }
 }
