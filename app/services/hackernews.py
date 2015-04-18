@@ -13,7 +13,7 @@ def get_stories(tags, timestamp=None):
     if not timestamp:
         timestamp = int(time.time())
 
-    @cache(key='get-stories-%s' % '-'.join(tags), ttl=600)
+    @cache(key='get-stories-%s' % '-'.join(sorted(tags)), ttl=600)
     def inner(tags):
         ret = {}
         while tags:
